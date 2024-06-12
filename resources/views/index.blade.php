@@ -22,17 +22,20 @@
     </header>
 
     <section class="banner">
-        <div class="cont_banner">
-            <h1>
-                Fieles de Filadelfia
-            </h1>
-            <h2>
+        <div class="font_banner">
+            <div class="grid_banner">
+                <div class="titulo_banner">
+                    <h1>Fieles de <br> filadelfia</h1>
+                    <div> 
 
-            </h2>
+                    </div>
+                </div>
+                <div class="content_banner">
+                    <h2>Donde el amor a Dios y a la familia es lo mas importante</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum dicta labore illum itaque expedita! At ad quibusdam voluptas, illum dolores repellat iste voluptatibus, officia dolorum dolor, inventore saepe numquam a.</p>
+                </div>
+            </div>
         </div>
     </section>
-    <div>
-       <h1>hola</h1>
-    </div>
 </body>
 </html>
