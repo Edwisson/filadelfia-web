@@ -14,15 +14,18 @@ use App\Http\Controllers\ContactoController;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('index');
 });
+=======
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+>>>>>>> 773c907a2b097b807685bd5b381aa855d3e80eb4
 
 
 
-// Esto lo utlizo despues
-// Route::resource('contactos', ContactoController::class)->names('contactos');
-
-Route::get('/contactos',function(){
-    return view('contactos');
-});
+Route::get('/contactos',[ContactoController::class,  'index'])->name('contactos.index');
+Route::get('/contactos/create', [ContactoController::class, 'create'])->name('contactos.create');
+Route::post('/contactos/store', [ContactoController::class, 'store'])->name('contacto.store');

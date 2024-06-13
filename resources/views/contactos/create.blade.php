@@ -1,4 +1,17 @@
 @extends('layouts.app')
+<<<<<<< HEAD:resources/views/contactos.blade.php
+=======
+
+@section('title', 'Crear')
+
+@section('content')
+<a href="{{ route('contactos.index') }}">Inicio</a>
+    <h1>Formulario de Contacto</h1>
+    <form action="{{ route('contacto.store') }}" method="POST">
+        @csrf
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br><br>
+>>>>>>> 773c907a2b097b807685bd5b381aa855d3e80eb4:resources/views/contactos/create.blade.php
 
 @section('content')
 
@@ -13,6 +26,7 @@
 
                 <input type="text" id="nombre" name="nombre" class="inputs_contacto" placeholder="Nombre">
 
+<<<<<<< HEAD:resources/views/contactos.blade.php
                 <input type="text" id="apellido" name="apellido" class="inputs_contacto" placeholder="Apellido">
                 
                 <input type="email" id="email" name="email" class="inputs_contacto" placeholder="Email">
@@ -28,3 +42,8 @@
     </section>
      
     @endsection
+=======
+        <button type="submit">Enviar</button>
+    </form>
+@endsection
+>>>>>>> 773c907a2b097b807685bd5b381aa855d3e80eb4:resources/views/contactos/create.blade.php
