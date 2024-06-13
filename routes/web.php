@@ -15,7 +15,7 @@ use App\Http\Controllers\ContactoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 

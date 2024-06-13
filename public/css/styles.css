@@ -1,0 +1,198 @@
+:root {
+    --paper: #f4f4ef;
+    --aluminum: #acbebe;
+    --ink: #20232a;
+    --ruby: #a01d26;
+    --blue: #302f72;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--paper);
+    margin: 0;
+}
+
+header {
+    background-color: var(--ruby); /* Color de fondo */
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}
+
+h1 {
+    font-size: 120px;
+    margin: 10px;
+    font-family: 'Montserrat';
+    line-height: 1;
+}
+
+h2 {
+    font-size: 72px;
+    color: var(--ink);
+    font-family: 'Montserrat';
+    line-height: 1;
+}
+
+p {
+    font-size: 24px;
+    margin: 20px;
+    margin-top: 0;
+    color: var(--ink);
+}
+
+h3{
+    font-size: 48px;
+}
+
+.margin_container {
+    margin: 0 250px;
+    max-width: calc(100% - 500px); /* Ajuste para evitar desbordamiento */
+}
+
+.logo {
+    height: 55px;
+    border-radius: 50%;
+}
+
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    height: 65px;
+}
+
+.navegacion_principal {
+    display: flex;
+    align-items: center;
+}
+
+.navegacion_principal a {
+    color: var(--paper); /* Color del texto de los enlaces */
+    text-decoration: none;
+    margin: 0; /* Espacio entre los enlaces */
+    padding: 10px;
+    border-left: 1px solid;
+    border-color: var(--paper);
+    font-size: 20px;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/iglesia_pastores_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.font_banner {
+    position: absolute;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.grid_doble {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.titulo_banner {
+    color: var(--paper);
+    padding-left: 40px;
+    padding-top: 80px;
+}
+
+.titulo_banner div {
+    display: inline;
+}
+
+.content_banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 65px;
+}
+
+.content_banner p {
+    color: var(--paper);
+}
+
+.content_banner h2 {
+    color: var(--paper);
+    font-size: 48px;
+    margin: 10px;
+}
+
+.marco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--paper);
+    margin: 0 50px 0 0;
+}
+
+.boton_unir {
+    background-color: var(--ruby);
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.boton_unir a {
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    color: var(--paper);
+    font-size: 24px;
+}
+
+.margin_container h2{
+    text-align: center;
+    color: var(--blue);
+
+}
+
+.seccion_pastores {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: var();
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.seccion_pastores img {
+    width: 100%; /* Ajustar el ancho al contenedor padre */
+    max-width: 400px; /* Limitar el tamaño máximo */
+    margin: auto auto auto 0 ;
+}
+
+.seccion_pastores div{
+    padding: 20px;
+    margin: 50px 0 50px 20px;
+    text-align: justify;
+    box-shadow: 0 0 20px var(--aluminum);
+}
+
+.seccion_pastores div h3{
+    margin: 20px;
+    color: var(--ink);
+}
