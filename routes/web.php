@@ -14,15 +14,12 @@ use App\Http\Controllers\ContactoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
-// Esto lo utlizo despues
-// Route::resource('contactos', ContactoController::class)->names('contactos');
-
-Route::get('/contactos',function(){
-    return view('contactos');
-});
+Route::get('/contactos',[ContactoController::class,  'index'])->name('contactos.index');
+Route::get('/contactos/create', [ContactoController::class, 'create'])->name('contactos.create');
+Route::post('/contactos/store', [ContactoController::class, 'store'])->name('contacto.store');

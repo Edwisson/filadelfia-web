@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contacto</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Crear')
+
+@section('content')
+<a href="{{ route('contactos.index') }}">Inicio</a>
     <h1>Formulario de Contacto</h1>
-    <form method="POST" action="">
+    <form action="{{ route('contacto.store') }}" method="POST">
         @csrf
         <label for="nombre">Nombre:</label><br>
         <input type="text" id="nombre" name="nombre"><br><br>
@@ -26,5 +24,4 @@
 
         <button type="submit">Enviar</button>
     </form>
-</body>
-</html>
+@endsection
