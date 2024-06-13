@@ -16,27 +16,35 @@ html {
 
 body {
     background-color: var(--paper);
+    font-family: 'Montserrat';
+    
     margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color: var(--ruby); /* Color de fondo */
+    top: 0;
+    background-color: var(--ruby); 
     position: fixed;
     z-index: 1000;
     width: 100%;
 }
+textarea{
+    resize: none;
+    width: 100%; /* Asegura que el textarea no exceda el ancho */
+}
+
 
 h1 {
     font-size: 120px;
     margin: 10px;
-    font-family: 'Montserrat';
     line-height: 1;
+    color: var(--ink);
 }
 
 h2 {
     font-size: 72px;
     color: var(--ink);
-    font-family: 'Montserrat';
     line-height: 1;
 }
 
@@ -51,10 +59,15 @@ h3{
     font-size: 48px;
 }
 
+/* Establece un margen para que el contenido de la pagina
+se alinie  con la barra de navegacion*/
+
 .margin_container {
     margin: 0 250px;
-    max-width: calc(100% - 500px); /* Ajuste para evitar desbordamiento */
+    max-width: calc(100% - 500px); 
 }
+
+/*Barra  de navegacion*/
 
 .logo {
     height: 55px;
@@ -75,14 +88,18 @@ h3{
 }
 
 .navegacion_principal a {
-    color: var(--paper); /* Color del texto de los enlaces */
+    color: var(--paper); 
     text-decoration: none;
-    margin: 0; /* Espacio entre los enlaces */
+    margin: 0; 
     padding: 10px;
     border-left: 1px solid;
     border-color: var(--paper);
     font-size: 20px;
 }
+
+/*Landing page*/
+
+/*Banner principal*/
 
 .banner {
     width: 100%;
@@ -109,16 +126,15 @@ h3{
     grid-template-columns: 1fr 1fr;
 }
 
-.titulo_banner {
-    color: var(--paper);
-    padding-left: 40px;
-    padding-top: 80px;
-}
-
 .titulo_banner div {
     display: inline;
 }
 
+.titulo_banner h1 {
+    color: var(--paper);
+     padding-left: 40px;
+    padding-top: 80px;
+}
 .content_banner {
     display: flex;
     flex-direction: column;
@@ -137,6 +153,8 @@ h3{
     font-size: 48px;
     margin: 10px;
 }
+
+
 
 .marco {
     display: flex;
@@ -164,6 +182,8 @@ h3{
     color: var(--paper);
     font-size: 24px;
 }
+
+/*Seccion "Nuestro Pastores"*/
 
 .margin_container h2{
     text-align: center;
@@ -195,4 +215,51 @@ h3{
 .seccion_pastores div h3{
     margin: 20px;
     color: var(--ink);
+}
+
+/*Pagina de "Contacto"*/
+
+.form_contacto{
+    box-shadow: 0 0 25px var(--aluminum);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 50px;
+    width: 800px;
+}
+
+.inputs_contacto{
+    margin: 0px auto 20px auto;
+    padding: 10px;
+    width: 400px;
+    background-color: var(--paper);
+    border: 1px solid var(--aluminum);
+    font-size: 16px;
+    font-family: 'Montserrat'; 
+    color: var(--ink);
+    border-radius: 5px;
+
+}
+
+.text_contacto{
+    margin: 10px auto;
+    width: 600px;
+}
+
+.boton_contacto{
+    margin: 0px auto;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: var(--blue);
+    color: var(--paper);
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+main > h1{
+    text-align: center;
+    margin-top: 115px;
+    margin-bottom: 50px;
 }

@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contacto</title>
-</head>
-<body>
-    <h1>Formulario de Contacto</h1>
-    <form method="POST" action="">
-        @csrf
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre"><br><br>
+@extends('layouts.app')
 
-        <label for="apellido">Apellido:</label><br>
-        <input type="text" id="apellido" name="apellido"><br><br>
+@section('content')
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
+    <h1>Contacto</h1>
+    <section>
+        <div>
 
-        <label for="telefono">Teléfono:</label><br>
-        <input type="tel" id="telefono" name="telefono"><br><br>
+        </div>
+        <div class="margin_container">
+            <form method="POST" action="" class="form_contacto">
+            @csrf
 
-        <label for="mensaje">Mensaje:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="4"></textarea><br><br>
+                <input type="text" id="nombre" name="nombre" class="inputs_contacto" placeholder="Nombre">
 
-        <button type="submit">Enviar</button>
-    </form>
-</body>
-</html>
+                <input type="text" id="apellido" name="apellido" class="inputs_contacto" placeholder="Apellido">
+                
+                <input type="email" id="email" name="email" class="inputs_contacto" placeholder="Email">
+
+                <input type="tel" id="telefono" name="telefono" class="inputs_contacto" placeholder="Numero de Telefono">
+
+                <textarea id="mensaje" name="mensaje" rows="8" class="text_contacto inputs_contacto" placeholder="Deja tu mensaje..."></textarea>
+
+                <button type="submit" class="boton_contacto">Enviar</button>
+            </form>
+    
+        </div>
+    </section>
+     
+    @endsection
