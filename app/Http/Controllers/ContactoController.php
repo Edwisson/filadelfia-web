@@ -12,7 +12,7 @@ class ContactoController extends Controller
     {
         $contactos = Contacto::all();
         
-        return view('contactos.index', compact('contactos'));
+        return view('contactos.read', compact('contactos'));
     
     
     }
@@ -28,7 +28,7 @@ class ContactoController extends Controller
     {
         Contacto::create($request->all());
 
-        return redirect()->route('contactos.index');
+        return redirect()->route('contactos.read');
     }
 
 }
