@@ -11,11 +11,22 @@ class ContactoController extends Controller
     public function index()
     {
         $contactos = Contacto::all();
-        
-        return view('contactos.read', compact('contactos'));
-    
-    
+        return view('contactos.read', compact('contactos')); 
     }
+
+
+
+    public function intranetMensajes()
+    {
+        $contactos = Contacto::paginate(4);
+        
+        
+        // Mostrar la vista 'intranet.mensajes'
+        return view('intranet.mensajes', compact('contactos'));
+    }
+
+
+
 
 
     public function create()
@@ -31,4 +42,16 @@ class ContactoController extends Controller
         return redirect()->route('contactos.read');
     }
 
+
+
+    public function show($id)
+    {
+    $contactos = Contacto::findOrFail($id);
+    
+    return view('intranet.show', compact('contactos'));
+    }
+
+
 }
+
+
