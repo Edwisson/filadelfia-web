@@ -18,7 +18,7 @@ class ContactoController extends Controller
 
     public function intranetMensajes()
     {
-        $contactos = Contacto::paginate(4);
+        $contactos = Contacto::paginate(10);
         
         
         // Mostrar la vista 'intranet.mensajes'
@@ -39,7 +39,7 @@ class ContactoController extends Controller
     {
         Contacto::create($request->all());
 
-        return redirect()->route('contactos.read');
+        return redirect()->route('intranet.mensajes');
     }
 
 
