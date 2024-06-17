@@ -1,19 +1,3 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-    <h1>{{ $contacto->nombre }} {{ $contacto->apellido }}</h1>
-    <p>Email: {{ $contacto->email }}</p>
-    <p>Teléfono: {{ $contacto->telefono }}</p>
-    <p>Mensaje: {{ $contacto->mensaje }}</p>
-    <p>ID: {{ $contacto->id }}</p>
-    <p>Fecha de creación: {{ $contacto->created_at }}</p>
-@endsection
---}}
-
-
-
-
-
 @extends('layouts.app')
 
 @section('content')
