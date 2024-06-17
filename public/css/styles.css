@@ -19,7 +19,7 @@ body {
     font-family: 'Montserrat';
     
     margin: 0;
-    padding: 0;
+    padding-top: 65px;
 }
 
 header {
@@ -260,6 +260,45 @@ se alinie  con la barra de navegacion*/
 
 main > h1{
     text-align: center;
-    margin-top: 115px;
-    margin-bottom: 50px;
+    margin: 50px 0;
 }
+
+/*mensajes de contacto*/
+
+.contenedor_tabla_mensajes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 25px var(--aluminum);
+    border-radius: 10px;
+    align-items: center;
+}
+
+.tabla_mensajes{
+    width: 100%;
+    border: 0;
+    padding: 20px;
+}
+
+.contenido_mensajes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border: 0;
+    border:1px solid var(--aluminum);
+    border-radius: 5px;
+    margin: 5px;
+    background-color: white;
+}
+
+.contenido_mensajes a{
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 24px;
+}
+
+/*Mensaje*/
+
+
