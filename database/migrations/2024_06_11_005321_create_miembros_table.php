@@ -11,6 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Schema::create('miembros', function (Blueprint $table) {
+        //     $table->unsignedInteger('cedula')->primary();
+        //     $table->string('nombres');
+        //     $table->string('apellidos');
+        //     $table->string('direccion');
+        //     $table->unsignedInteger('telefono');
+        //     $table->enum('estado_civil',['soltero','casado','viudo']);
+        //     $table->unsignedSmallInteger('edad');
+        //     $table->boolean('estado_salud');
+        //     $table->text('descripcion_salud');
+        //     $table->boolean('estado_economico');
+        //     $table->text('descripcion_economica');
+        //     $table->text('necesidades');
+        //     $table->boolean('bautizado');
+        //     $table->timestamps();
+        // });
+
+
         Schema::create('miembros', function (Blueprint $table) {
             $table->unsignedInteger('cedula')->primary();
             $table->string('nombres');
@@ -19,14 +37,16 @@ return new class extends Migration
             $table->unsignedInteger('telefono');
             $table->enum('estado_civil',['soltero','casado','viudo']);
             $table->unsignedSmallInteger('edad');
-            $table->boolean('estado_salud');
+            $table->string('estado_salud');
             $table->text('descripcion_salud');
-            $table->boolean('estado_economico');
+            $table->string('estado_economico');
             $table->text('descripcion_economica');
             $table->text('necesidades');
-            $table->boolean('bautizado');
+            $table->string('bautizado');
             $table->timestamps();
         });
+
+
     }
 
     /**
