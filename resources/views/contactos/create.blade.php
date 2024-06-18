@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Contacto</h1>
+    <h1 class="titulo_formularios">Contacto</h1>
     <section>
         <div>
 
