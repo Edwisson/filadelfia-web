@@ -16,7 +16,7 @@ return new class extends Migration
             $table->enum('tipo', ['culto','vigilia','evangelismo','bautizo']);
             $table->date('fecha');
             $table->string('ubicacion');
-            $table->text('decripcion');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
