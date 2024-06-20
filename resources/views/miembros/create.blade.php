@@ -9,17 +9,17 @@
     </div>
     <div class="margin_container">
         <form method="POST" action="{{ route('miembros.store') }}" class="form_grande">
-        @csrf
+            @csrf
             <input type="text" id="nombres" name="nombres" class="inputs_contacto" placeholder="Nombres">
-            
+
             <input type="text" id="apellidos" name="apellidos" class="inputs_contacto" placeholder="Apellidos">
-            
+
             <input type="text" id="cedula" name="cedula" class="inputs_contacto" placeholder="Cédula">
 
             <input type="text" id="direccion" name="direccion" class="inputs_contacto" placeholder="Dirección">
 
             <input type="tel" id="telefono" name="telefono" class="inputs_contacto" placeholder="Número de Teléfono">
-            
+
             <!-- Campos adicionales -->
             <select id="estado_civil" name="estado_civil" class="inputs_contacto">
                 <option value="" disabled selected>Estado Civil</option>
@@ -61,5 +61,5 @@
 
     </div>
 </section>
- 
+
 @endsection

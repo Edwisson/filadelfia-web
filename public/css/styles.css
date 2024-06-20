@@ -11,28 +11,32 @@ html {
     box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
 body {
     background-color: var(--paper);
     font-family: 'Montserrat';
-    
+
     margin: 0;
     padding-top: 65px;
 }
 
 header {
     top: 0;
-    background-color: var(--ruby); 
+    background-color: var(--ruby);
     position: fixed;
     z-index: 1000;
     width: 100%;
 }
-textarea{
+
+textarea {
     resize: none;
-    width: 100%; /* Asegura que el textarea no exceda el ancho */
+    width: 100%;
+    /* Asegura que el textarea no exceda el ancho */
 }
 
 
@@ -56,7 +60,7 @@ p {
     color: var(--ink);
 }
 
-h3{
+h3 {
     font-size: 32px;
 }
 
@@ -65,7 +69,7 @@ se alinie  con la barra de navegacion*/
 
 .margin_container {
     margin: 0 250px;
-    max-width: calc(100% - 500px); 
+    max-width: calc(100% - 500px);
 }
 
 /*Barra  de navegacion*/
@@ -89,9 +93,9 @@ se alinie  con la barra de navegacion*/
 }
 
 .navegacion_principal a {
-    color: var(--paper); 
+    color: var(--paper);
     text-decoration: none;
-    margin: 0; 
+    margin: 0;
     padding: 10px;
     border-left: 1px solid;
     border-color: var(--paper);
@@ -133,10 +137,11 @@ se alinie  con la barra de navegacion*/
 
 .titulo_banner h1 {
     color: var(--paper);
-     padding-left: 40px;
+    padding-left: 40px;
     padding-top: 80px;
     font-size: 120px;
 }
+
 .content_banner {
     display: flex;
     flex-direction: column;
@@ -187,7 +192,7 @@ se alinie  con la barra de navegacion*/
 
 /*Seccion "Nuestro Pastores"*/
 
-.margin_container h2{
+.margin_container h2 {
     text-align: center;
     color: var(--blue);
 
@@ -202,31 +207,33 @@ se alinie  con la barra de navegacion*/
 }
 
 .seccion_pastores img {
-    width: 100%; /* Ajustar el ancho al contenedor padre */
-    max-width: 400px; /* Limitar el tamaño máximo */
-    margin: auto auto auto 0 ;
+    width: 100%;
+    /* Ajustar el ancho al contenedor padre */
+    max-width: 400px;
+    /* Limitar el tamaño máximo */
+    margin: auto auto auto 0;
 }
 
-.seccion_pastores div{
+.seccion_pastores div {
     padding: 20px;
     margin: 50px 0 50px 20px;
     text-align: justify;
     box-shadow: 0 0 20px var(--aluminum);
 }
 
-.seccion_pastores div h3{
+.seccion_pastores div h3 {
     margin: 20px;
     color: var(--ink);
 }
 
 /*formularios*/
 
-.titulo_formularios{
+.titulo_formularios {
     text-align: center;
     margin: 50px 250px;
 }
 
-.form_pequeño{
+.form_pequeño {
     box-shadow: 0 0 25px var(--aluminum);
     display: flex;
     flex-direction: column;
@@ -236,35 +243,35 @@ se alinie  con la barra de navegacion*/
     width: 800px;
 }
 
-.form_grande{
+.form_grande {
     box-shadow: 0 0 25px var(--aluminum);
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0 auto;
     width: 80%;
     padding: 50px 25px;
-   
+
 }
 
-.inputs_contacto{
+.inputs_contacto {
     margin: 0px auto 20px auto;
     padding: 10px;
     width: 400px;
     background-color: var(--paper);
     border: 1px solid var(--aluminum);
     font-size: 16px;
-    font-family: 'Montserrat'; 
+    font-family: 'Montserrat';
     color: var(--ink);
     border-radius: 5px;
 
 }
 
-.text_contacto{
+.text_contacto {
     margin: 10px auto;
     width: 600px;
 }
 
-.boton_contacto{
+.boton_contacto {
     margin: 0px auto;
     width: 150px;
     height: 40px;
@@ -279,12 +286,12 @@ se alinie  con la barra de navegacion*/
 
 /*Listas*/
 
-.titulo_listas{
+.titulo_listas {
     text-align: left;
     margin: 50px 250px;
 }
 
-.contenedor_listas{
+.contenedor_listas {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -293,16 +300,16 @@ se alinie  con la barra de navegacion*/
     align-items: center;
 }
 
-.tabla_listas{
+.tabla_listas {
     width: 100%;
     border: 0;
     padding: 20px;
     background-color: var(--paper);
 }
 
-.contenido_listas{
+.contenido_listas {
     display: flex;
-   
+
     text-align: center;
     padding: 5px;
     border: 0;
@@ -310,7 +317,7 @@ se alinie  con la barra de navegacion*/
     background-color: white;
 }
 
-.contenido_listas a{
+.contenido_listas a {
     text-decoration: none;
     display: flex;
     justify-content: space-between;
@@ -324,22 +331,22 @@ se alinie  con la barra de navegacion*/
 
 /*mostrar contenido*/
 
-.contenedor_mostrar_flex{
+.contenedor_mostrar_flex {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     height: calc(100vh - 65px);
     margin: auto;
 }
 
-.mostrar{
+.mostrar {
     width: 600px;
     padding: 20px;
     box-shadow: 0 0 25px var(--aluminum);
 }
 
-.mostrar_grande{
+.mostrar_grande {
     width: 900px;
     padding: 20px 40px;
     box-shadow: 0 0 25px var(--aluminum);
@@ -363,29 +370,28 @@ se alinie  con la barra de navegacion*/
     background-color: #f1f1f1;
 }
 
-.mostrar h1{
+.mostrar h1 {
     margin-bottom: 30px;
-   
+
 }
 
-.mostrar_grande h1{
+.mostrar_grande h1 {
     margin-bottom: 30px;
 }
 
-.mostrar_largo{
+.mostrar_largo {
     background-color: var(--fondo);
     margin: 15px;
     padding: 5px;
 }
 
-.mostrar_largo p{
+.mostrar_largo p {
     margin: 0;
 }
 
-.contenedor_mostrar_grid{
+.contenedor_mostrar_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 65px);
     margin: auto;
 }
-

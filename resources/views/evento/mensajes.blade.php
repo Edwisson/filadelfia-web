@@ -2,28 +2,22 @@
 
 @section('content')
 
-<h1>Lista de Mensajes</h1>
-<section class="contenedor_tabla_mensajes margin_container">
-    <table border="1" class="tabla_mensajes">
+<h1 class="titulo_listas">Eventos</h1>
+<section class="contenedor_listas margin_container">
+    <table border="1" class="tabla_listas">
 
-    @foreach($eventos as $evento)
+        @foreach($eventos as $evento)
         <tr>
-            <td class="contenido_mensajes">
+            <td class="contenido_listas">
                 <a href="{{ route('evento.show', ['id' => $evento->id]) }}">
                     {{ $evento->tipo }}
+                    <p>
+                        Fecha: {{ $evento->fecha }}
+                    </p>
                 </a>
-                <p>
-                    Fecha: {{ $evento->fecha }}
-                </p>
-                <p>
-                    Ubicación: {{ $evento->ubicacion }}
-                </p>
-                <p>
-                    Descripción: {{ $evento->descripcion }}
-                </p>
             </td>
         </tr>
-    @endforeach
+        @endforeach
     </table>
 </section>
 

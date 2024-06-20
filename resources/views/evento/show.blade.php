@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Información del Evento</title>
-</head>
-<body>
-    <h1>Información del Evento</h1>
-    <p>Evento ID: {{ $evento->id }}</p>
-    <p>Tipo: {{ $evento->tipo }}</p>
-    <p>Fecha: {{ $evento->fecha }}</p>
-    <p>Ubicación: {{ $evento->ubicacion }}</p>
-    <p>Descripción: {{ $evento->descripcion }}</p>
-    <p><a href="{{ route('evento.create') }}">Crear nuevo evento</a></p>
-    <a href="{{ url('/evento/create') }}" class="boton-atras">Volver al formulario de creación</a>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+<section class="contenedor_mostrar_flex">
+    <div class="mostrar">
+
+        <h1>Información del Evento</h1>
+        <p>Evento ID: {{ $evento->id }}</p>
+        <p>Tipo: {{ $evento->tipo }}</p>
+        <p>Fecha: {{ $evento->fecha }}</p>
+        <p>Ubicación: {{ $evento->ubicacion }}</p>
+        <p>Descripción:</p>
+        <div class="mostrar_largo">
+            <p> {{ $evento->descripcion }}</p>
+        </div>
+
+    </div>
+</section>
+@endsection
