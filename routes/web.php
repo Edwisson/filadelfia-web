@@ -24,5 +24,5 @@ Route::post('/miembros/store', [MiembroController::class, 'store'])->name('miemb
 
 Route::get('/miembros/{cedula}', [MiembroController::class, 'show'])->name('miembros.show');
 
-Route::get('/miembros', [MiembroController::class,'mensajes'])->name('miembros.mensajes');
+Route::get('/miembros', [MiembroController::class,'mensajes'])->name('miembros.miembros');
 

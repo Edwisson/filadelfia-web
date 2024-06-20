@@ -14,11 +14,8 @@ class MiembroController extends Controller
         
         
         // Mostrar la vista mensajes'
-        return view('miembros.mensajes', compact('miembros'));
+        return view('miembros.miembros', compact('miembros'));
     }
-
-
-
 
     public function create()
     {
@@ -29,7 +26,7 @@ class MiembroController extends Controller
     {
         Miembro::create($request->all());
 
-        return redirect()->route('miembros.mensajes');
+        return redirect()->route('miembros.miembros');
         
     }
 

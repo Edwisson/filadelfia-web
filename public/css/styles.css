@@ -60,10 +60,6 @@ h3{
     font-size: 32px;
 }
 
-main{
-    height: 100%;
-}
-
 /* Establece un margen para que el contenido de la pagina
 se alinie  con la barra de navegacion*/
 
@@ -84,7 +80,7 @@ se alinie  con la barra de navegacion*/
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
-    height: 65px;
+    max-height: 65px;
 }
 
 .navegacion_principal {
@@ -223,14 +219,14 @@ se alinie  con la barra de navegacion*/
     color: var(--ink);
 }
 
-/*Pagina de "Contacto"*/
+/*formularios*/
 
 .titulo_formularios{
     text-align: center;
     margin: 50px 250px;
 }
 
-.form_contacto{
+.form_pequeño{
     box-shadow: 0 0 25px var(--aluminum);
     display: flex;
     flex-direction: column;
@@ -238,6 +234,16 @@ se alinie  con la barra de navegacion*/
     margin: 0 auto;
     padding: 50px;
     width: 800px;
+}
+
+.form_grande{
+    box-shadow: 0 0 25px var(--aluminum);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    width: 80%;
+    padding: 50px 25px;
+   
 }
 
 .inputs_contacto{
@@ -271,14 +277,14 @@ se alinie  con la barra de navegacion*/
 
 
 
-/*mensajes de contacto*/
+/*Listas*/
 
-.titulo_lista{
+.titulo_listas{
     text-align: left;
     margin: 50px 250px;
 }
 
-.contenedor_mensajes{
+.contenedor_listas{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -287,14 +293,14 @@ se alinie  con la barra de navegacion*/
     align-items: center;
 }
 
-.tabla_mensajes{
+.tabla_listas{
     width: 100%;
     border: 0;
     padding: 20px;
     background-color: var(--paper);
 }
 
-.contenido_mensajes{
+.contenido_listas{
     display: flex;
    
     text-align: center;
@@ -304,7 +310,7 @@ se alinie  con la barra de navegacion*/
     background-color: white;
 }
 
-.contenido_mensajes a{
+.contenido_listas a{
     text-decoration: none;
     display: flex;
     justify-content: space-between;
@@ -316,18 +322,70 @@ se alinie  con la barra de navegacion*/
     height: 100%;
 }
 
-.contenedor_mensaje{
+/*mostrar contenido*/
+
+.contenedor_mostrar_flex{
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    height: 100%;
+    height: calc(100vh - 65px);
     margin: auto;
 }
 
-.mensaje{
+.mostrar{
     width: 600px;
-    padding: 5px;
-    box-shadow: 0 0 25px var(--aluminum); 
-
+    padding: 20px;
+    box-shadow: 0 0 25px var(--aluminum);
 }
+
+.mostrar_grande{
+    width: 900px;
+    padding: 20px 40px;
+    box-shadow: 0 0 25px var(--aluminum);
+}
+
+.mostrar_tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.mostrar_tabla td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.mostrar_tabla tr:hover {
+    background-color: #f1f1f1;
+}
+
+.mostrar h1{
+    margin-bottom: 30px;
+   
+}
+
+.mostrar_grande h1{
+    margin-bottom: 30px;
+}
+
+.mostrar_largo{
+    background-color: var(--fondo);
+    margin: 15px;
+    padding: 5px;
+}
+
+.mostrar_largo p{
+    margin: 0;
+}
+
+.contenedor_mostrar_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(100vh - 65px);
+    margin: auto;
+}
+

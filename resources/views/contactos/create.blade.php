@@ -8,7 +8,7 @@
 
         </div>
         <div class="margin_container">
-            <form method="POST" action="{{ route('contacto.store') }}" class="form_contacto">
+            <form method="POST" action="{{ route('contacto.store') }}" class="form_pequeño">
             @csrf
 
                 <input type="text" id="nombre" name="nombre" class="inputs_contacto" placeholder="Nombre">

@@ -2,20 +2,19 @@
 
 @section('content')
 
-<h1>Miembros</h1>
+<h1 class="titulo_formularios">Miembros</h1>
 <section>
     <div>
 
     </div>
     <div class="margin_container">
-        <form method="POST" action="{{ route('miembros.store') }}" class="form_contacto">
+        <form method="POST" action="{{ route('miembros.store') }}" class="form_grande">
         @csrf
-
-            <input type="text" id="cedula" name="cedula" class="inputs_contacto" placeholder="Cédula">
-
             <input type="text" id="nombres" name="nombres" class="inputs_contacto" placeholder="Nombres">
             
             <input type="text" id="apellidos" name="apellidos" class="inputs_contacto" placeholder="Apellidos">
+            
+            <input type="text" id="cedula" name="cedula" class="inputs_contacto" placeholder="Cédula">
 
             <input type="text" id="direccion" name="direccion" class="inputs_contacto" placeholder="Dirección">
 
