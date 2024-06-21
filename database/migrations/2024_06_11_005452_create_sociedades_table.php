@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sociedades', function (Blueprint $table) {
             $table->string('nombre')->primary();
+            $table->text('descripcion')->primary();
             $table->unsignedInteger('n_miembros');
             $table->timestamps();
         });
