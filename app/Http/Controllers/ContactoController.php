@@ -32,6 +32,7 @@ class ContactoController extends Controller
     public function create()
     {
         return view('contactos.create');
+        
     }
 
 

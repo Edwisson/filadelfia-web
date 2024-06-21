@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('sociedades', function (Blueprint $table) {
             $table->string('nombre')->primary();
-            $table->text('descripcion')->primary();
-            $table->unsignedInteger('n_miembros');
+            
+            // Tomar en nota que se puso nullable como prueba, ya que de esta forma funciona la busqueda
+            $table->unsignedInteger('n_miembros')->nullable();
+            $table->text('descripcion');
+
             $table->timestamps();
         });
     }
