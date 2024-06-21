@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SociedadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\MiembroController;
@@ -11,6 +12,7 @@ Route::get('/', function () {
 
 Route::get('/contactos/create', [ContactoController::class, 'create'])->name('contactos.create');
 Route::post('/contactos/store', [ContactoController::class, 'store'])->name('contacto.store');
+
 
 Route::get('/intranet/{id}', [ContactoController::class, 'show'])->name('intranet.show');
 Route::get('/intranet', [ContactoController::class,'intranetMensajes'])->name('intranet.mensajes');
@@ -38,3 +40,11 @@ Route::get('/evento/{id}', [EventoController::class, 'show'])->name('evento.show
 
 Route::get('/evento', [EventoController::class, 'mensajes'])->name('evento.mensajes');
 
+
+
+// Carpeta sociedades
+
+Route::get('/sociedades/create',[SociedadController::class, 'create'])->name('sociedades.create');
+Route::post('/sociedades/store', [SociedadController::class, 'store'])->name('sociedades.store');
+Route::get('/sociedades/{nombre}', [SociedadController::class, 'show'])->name('sociedades.show');
+Route::get('/sociedades',[SociedadController::class, 'lista'])->name('sociedades.lista');
