@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('necesidades');
             $table->varchar('bautizado');
             $table->timestamps();
+            $table->varchar('genero');
         });
 
 

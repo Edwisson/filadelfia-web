@@ -9,8 +9,9 @@
         @foreach($sociedades as $sociedad)
         <tr>
             <td class="contenido_listas">
-                <a href="{{ route('sociedades.show', ['nombre' => $sociedad->nombre])}}">                    <p>
-                        Descripcion: {{ $sociedad->descripcion }}
+                <a href="{{ route('sociedades.show', ['nombre' => $sociedad->nombre])}}">
+                    <p>
+                        {{ $sociedad->nombre }}
                     </p>
                 </a>
             </td>

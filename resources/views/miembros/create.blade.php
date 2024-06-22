@@ -56,6 +56,12 @@
                 <option value="no">No</option>
             </select>
 
+            <select id="genero" name="genero" class="inputs_contacto">
+                <option value="" disabled selected>genero</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+
             <button type="submit" class="boton_contacto">Enviar</button>
         </form>
 

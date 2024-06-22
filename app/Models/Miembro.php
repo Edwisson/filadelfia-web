@@ -29,6 +29,7 @@ class Miembro extends Model
         'descripcion_economica',
         'necesidades',
         'bautizado',
+        'genero',
     ];
 
 
