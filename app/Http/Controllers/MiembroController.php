@@ -36,8 +36,8 @@ class MiembroController extends Controller
             'estado_economico' => 'required|string|max:255',
             'descripcion_economica' => 'nullable|string',
             'necesidades' => 'nullable|string',
-            'bautizado' => 'required|boolean',
-            'genero' => 'required|string|max:255', // Asegúrate de que 'genero' esté incluido en el formulario
+            'bautizado' => 'required|string',
+            'genero' => 'required|string|max:255',
         ]);
 
         // Crear un nuevo miembro
@@ -55,7 +55,7 @@ class MiembroController extends Controller
             ]);
         }
 
-        return redirect()->route('miembros.miembros')->with('success', 'Miembro registrado exitosamente');
+        return redirect()->route('miembros.miembros');
     }
 
     private function determinarSociedad($edad, $genero)
@@ -70,13 +70,7 @@ class MiembroController extends Controller
             case $edad >= 18 && $edad <= 29:
                 return 'Jóvenes';
             case $edad >= 30:
-                if ($genero == 'hombre') {
-                    return 'Caballeros';
-                } else {
-                    return 'Damas';
-                }
-            default:
-                return 'No pertenece a ninguna sociedad';
+                return $genero === 'hombre' ? 'Caballeros' : 'Damas';
         }
     }
     

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('nombre')->primary();
             
             // Tomar en nota que se puso nullable como prueba, ya que de esta forma funciona la busqueda
-            $table->unsignedInteger('n_miembros')->nullable();
+            $table->unsignedInteger('n_miembros')->default(0)->change();
             $table->text('descripcion');
 
             $table->timestamps();

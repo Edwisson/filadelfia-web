@@ -9,7 +9,7 @@ class MiembroSociedad extends Model
 {
     use HasFactory;
 
-    protected $table = 'miembro_sociedades';
+    protected $table = 'miembros-sociedades';
     protected $fillable = [
         'miembro',
         'sociedad',
