@@ -20,12 +20,12 @@ return new class extends Migration
             $table->unsignedInteger('telefono');
             $table->enum('estado_civil',['soltero','casado','viudo']);
             $table->unsignedSmallInteger('edad');
-            $table->string('estado_salud');
+            $table->varchar('estado_salud');
             $table->text('descripcion_salud');
-            $table->string('estado_economico');
+            $table->varchar('estado_economico');
             $table->text('descripcion_economica');
             $table->text('necesidades');
-            $table->string('bautizado');
+            $table->varchar('bautizado');
             $table->timestamps();
         });
 

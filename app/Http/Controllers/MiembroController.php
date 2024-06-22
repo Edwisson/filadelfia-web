@@ -8,6 +8,8 @@ use App\Models\Miembro;
 class MiembroController extends Controller
 {
 
+   
+
     public function mensajes()
     {
         $miembros = Miembro::paginate(10);
@@ -36,4 +38,34 @@ class MiembroController extends Controller
     
     return view('miembros.show', compact('miembros'));
     }
+
+    public function determinarSociedad($genero, $edad)
+{
+    switch ($edad) {
+        case 'sociedad':
+            switch (true) {
+                case $edad >= 0 && $edad <= 8:
+                    return 'Niños';
+                    
+                case $edad >= 9 && $edad <= 11:
+                    return 'Preadolescentes';
+                    
+                case $edad >= 12 && $edad <= 17:
+                    return 'Adolescentes';
+                    
+                case $edad >= 18 && $edad <= 29:
+                    return 'Jóvenes';
+                    
+                case $edad >= 30:
+                    return 'Caballeros y damas';
+                    
+                default:
+                    return 'No pertenece a ninguna sociedad.';
+            }
+            
+        
+    }
 }
+    
+}
+
