@@ -27,10 +27,17 @@ class SociedadController extends Controller
         return redirect()->route('sociedades.lista');
     }
 
+    // public function show($nombre)
+    // {
+    //     $sociedades = Sociedad::findOrFail($nombre);
+    
+    //     return view('sociedades.show', compact('sociedades'));
+        
+    // }
+
     public function show($nombre)
     {
-        $sociedades = Sociedad::findOrFail($nombre);
-    
+        $sociedades = Sociedad::with('miembrosSociedad')->findOrFail($nombre);
         return view('sociedades.show', compact('sociedades'));
     }
 

@@ -14,6 +14,24 @@
                 <td>Descripción</td>
                 <td>{{ $sociedades->descripcion }}</td>
             </tr>
+
+            @foreach ($sociedades->miembrosSociedad as $miembro)
+                <tr>
+                    <td>Miembros</td>
+                    <td>{{ $miembro->miembro }}</td>
+                </tr>
+
+                <tr>
+                    <td>Cargo</td>
+                    <td>{{ $miembro->cargo }}</td>
+                </tr>
+
+                <tr>
+                    <td>Sociedad</td>
+                    <td>{{ $miembro->sociedad }}</td>
+                </tr>
+            @endforeach
+
         </table>
     </div>
 </section>

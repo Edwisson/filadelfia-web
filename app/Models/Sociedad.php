@@ -18,6 +18,14 @@ class Sociedad extends Model
 
     protected $fillable = [
         'nombre',
+        'n_miembros',
         'descripcion'
     ];
+
+    public function miembrosSociedad()
+    {
+        return $this->hasMany(MiembroSociedad::class, 'sociedad', 'nombre');
+    }
+
+    
 }
