@@ -20,5 +20,7 @@ class Sociedad extends Model
         'nombre',
         'descripcion',
         'n_miembros',
+        'pastor',
+        'pastora',
     ];
 }

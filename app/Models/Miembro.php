@@ -31,6 +31,7 @@ class Miembro extends Model
         'necesidades',
         'bautizado',
         'genero',
+        'sociedad_id',
     ];
 
 
