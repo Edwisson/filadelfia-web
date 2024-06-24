@@ -9,10 +9,11 @@ use App\Models\Sociedad;
 class MiembroController extends Controller
 {
 
-    public function mensajes()
+    public function listas()
     {
         $miembros = Miembro::paginate(10);
-        return view('miembros.miembros', compact('miembros'));
+        $totalMiembros = $miembros -> count();
+        return view('miembros.miembros', compact('miembros','totalMiembros'));
     }
 
     public function create()

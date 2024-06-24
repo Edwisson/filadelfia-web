@@ -27,18 +27,18 @@ Route::post('/miembros/store', [MiembroController::class, 'store'])->name('miemb
 
 Route::get('/miembros/{cedula}', [MiembroController::class, 'show'])->name('miembros.show');
 
-Route::get('/miembros', [MiembroController::class,'mensajes'])->name('miembros.miembros');
+Route::get('/miembros', [MiembroController::class,'listas'])->name('miembros.miembros');
 
 
 
 //carpeta eventos
-Route::get('/evento/create', [EventoController::class, 'create'])->name('evento.create');
+Route::get('/eventos/create', [EventoController::class, 'create'])->name('evento.create');
 
 Route::post('/evento/store', [EventoController::class, 'store'])->name('evento.store');
 
 Route::get('/evento/{id}', [EventoController::class, 'show'])->name('evento.show');
 
-Route::get('/evento', [EventoController::class, 'mensajes'])->name('evento.mensajes');
+Route::get('/eventos', [EventoController::class, 'mensajes'])->name('evento.mensajes');
 
 
 

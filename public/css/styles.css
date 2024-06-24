@@ -402,29 +402,28 @@ se alinie  con la barra de navegacion*/
     text-align: right;
 }
 
-.info_sociedad{
+.info_listas{
     box-shadow: 0 0 25px var(--aluminum);
     padding: 20px;
-    margin-top:  30px;
-    margin-bottom:  30px;
-}
-.info_sociedad h1{
-    display: inline;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--aluminum);
+    margin-top:  50px;
+    margin-bottom:  50px;
 }
 
-.info_sociedad p{
-    margin: 30px 10px 10px 10px;
-
+.info_listas div{
+    margin-bottom: 10px;
 }
 
-.info_sociedad a{
-    padding: 10px;
+.info_listas p{
+    margin:10px;
+    padding: 10px 0px;
 
 }
 
-.info_sociedad h3{
+.info_listas a{
+    padding: 10px 0px;
+}
+
+.info_listas h3{
     text-align: left;
     margin: 10px;
 }

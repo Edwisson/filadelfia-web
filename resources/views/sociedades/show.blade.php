@@ -3,14 +3,14 @@
 @section('content')
 
 
-<section class="margin_container info_sociedad ">
+<section class="margin_container info_listas ">
     <h1>{{ $sociedades->nombre }}</h1>
     <p class="contenido_listas">Miembros totales: {{ $totalMiembros}} </p>
     <h3>Pastores:</h3>
 
     <div class="contenido_listas">
         <a href="{{ route('miembros.show', ['cedula' => $sociedades->pastor]) }}">
-        {{ $nombrePastor}} {{ $sociedades->pastor }} 
+        {{$nombrePastor}} {{$sociedades->pastor }} 
             
         </a>
     </div>
