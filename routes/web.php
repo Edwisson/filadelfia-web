@@ -48,3 +48,5 @@ Route::get('/sociedades/create',[SociedadController::class, 'create'])->name('so
 Route::post('/sociedades/store', [SociedadController::class, 'store'])->name('sociedades.store');
 Route::get('/sociedades/{nombre}', [SociedadController::class, 'show'])->name('sociedades.show');
 Route::get('/sociedades',[SociedadController::class, 'lista'])->name('sociedades.lista');
+
+Route::get('/asistencia/create', [AsistenciaController::class, 'create'])->name('asistencia.create');
