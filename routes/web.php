@@ -27,18 +27,18 @@ Route::post('/miembros/store', [MiembroController::class, 'store'])->name('miemb
 
 Route::get('/miembros/{cedula}', [MiembroController::class, 'show'])->name('miembros.show');
 
-Route::get('/miembros', [MiembroController::class,'mensajes'])->name('miembros.miembros');
+Route::get('/miembros', [MiembroController::class,'listas'])->name('miembros.miembros');
 
 
 
 //carpeta eventos
-Route::get('/evento/create', [EventoController::class, 'create'])->name('evento.create');
+Route::get('/eventos/create', [EventoController::class, 'create'])->name('evento.create');
 
 Route::post('/evento/store', [EventoController::class, 'store'])->name('evento.store');
 
 Route::get('/evento/{id}', [EventoController::class, 'show'])->name('evento.show');
 
-Route::get('/evento', [EventoController::class, 'mensajes'])->name('evento.mensajes');
+Route::get('/eventos', [EventoController::class, 'mensajes'])->name('evento.mensajes');
 
 
 
@@ -48,3 +48,10 @@ Route::get('/sociedades/create',[SociedadController::class, 'create'])->name('so
 Route::post('/sociedades/store', [SociedadController::class, 'store'])->name('sociedades.store');
 Route::get('/sociedades/{nombre}', [SociedadController::class, 'show'])->name('sociedades.show');
 Route::get('/sociedades',[SociedadController::class, 'lista'])->name('sociedades.lista');
+
+Route::get('/sociedades/edit/{nombre}', [SociedadController::class, 'edit'])->name('sociedades.edit');
+Route::put('/sociedades/{nombre}', [SociedadController::class, 'update'])->name('sociedades.update');
+
+
+
+Route::get('/asistencia/create', [AsistenciaController::class, 'create'])->name('asistencia.create');

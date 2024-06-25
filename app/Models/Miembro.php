@@ -14,6 +14,7 @@ class Miembro extends Model
     protected $primaryKey = 'cedula'; // Especifica que cedula es la clave primaria, tenia que poner esto porque me daba error
 
     public $incrementing = false; // Indica que no se debe incrementar automáticamente, ya que la cedula es un dato que insertaremos
+    protected $keyType = 'string'; // Asegúrate de especificar el tipo de clave primaria
 
     protected $fillable = [
         'cedula',
@@ -29,7 +30,11 @@ class Miembro extends Model
         'descripcion_economica',
         'necesidades',
         'bautizado',
+        'genero',
+        'sociedad_id',
     ];
-
-
+    public function miembros()
+    {
+        return $this->belongsToMany(Miembro::class, 'miembros-eventos')->withTimestamps();
+    }
 }

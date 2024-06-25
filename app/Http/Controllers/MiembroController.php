@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Miembro;
+use App\Models\Sociedad;
+
 class MiembroController extends Controller
 {
 
-    public function mensajes()
+    public function listas()
     {
         $miembros = Miembro::paginate(10);
-        
-        
-        // Mostrar la vista mensajes'
-        return view('miembros.miembros', compact('miembros'));
+        $totalMiembros = $miembros -> count();
+        return view('miembros.miembros', compact('miembros','totalMiembros'));
     }
 
     public function create()
@@ -22,18 +21,72 @@ class MiembroController extends Controller
         return view('miembros.create');
     }
 
+
     public function store(Request $request)
     {
-        Miembro::create($request->all());
-
-        return redirect()->route('miembros.miembros');
+        // Convertir tipos de datos manualmente
+        $data = $request->all();
+        $data['cedula'] = (int) $data['cedula'];
+        $data['telefono'] = (int) $data['telefono'];
+        $data['edad'] = (int) $data['edad'];
+        $data['bautizado'] = (bool) $data['bautizado'];
         
+        // Asignar la sociedad_id dinámicamente
+        $sociedadNombre = $this->determinarSociedad($data['edad'], $data['genero']);
+        $sociedad = Sociedad::where('nombre', $sociedadNombre)->first();
+        if ($sociedad) {
+            $data['sociedad_id'] = $sociedad->id_sociedad;
+        }
+    
+        // Crear una instancia de Request con los datos ajustados
+        $adjustedRequest = new Request($data);
+    
+        // Validar los datos ajustados
+        $validatedData = $adjustedRequest->validate([
+            'cedula' => 'required|integer',
+            'nombres' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'direccion' => 'required|string|max:255',
+            'telefono' => 'required|integer',
+            'estado_civil' => 'required|in:soltero,casado,viudo',
+            'edad' => 'required|integer|min:0',
+            'estado_salud' => 'required|string|max:255',
+            'descripcion_salud' => 'nullable|string',
+            'estado_economico' => 'required|string|max:255',
+            'descripcion_economica' => 'nullable|string',
+            'necesidades' => 'nullable|string',
+            'bautizado' => 'required|boolean',
+            'genero' => 'required|string|max:255',
+            'sociedad_id' => 'required|integer'
+        ]);
+        
+        // Crear el nuevo miembro
+        Miembro::create($validatedData);
+    
+        return redirect()->route('miembros.miembros');
     }
+
+private function determinarSociedad($edad, $genero)
+{
+    switch (true) {
+        case $edad >= 0 && $edad <= 8:
+            return 'Niños';
+        case $edad >= 9 && $edad <= 11:
+            return 'Preadolescentes';
+        case $edad >= 12 && $edad <= 17:
+            return 'Adolescentes';
+        case $edad >= 18 && $edad <= 29:
+            return 'Jóvenes';
+        case $edad >= 30:
+            return $genero === 'hombre' ? 'Caballeros' : 'Damas';
+        default:
+            return 'Otra Sociedad'; // Manejar caso por defecto o error
+    }
+}
 
     public function show($cedula)
     {
-    $miembros = Miembro::findOrFail($cedula);
-    
-    return view('miembros.show', compact('miembros'));
+        $miembro = Miembro::findOrFail($cedula);
+        return view('miembros.show', compact('miembro'));
     }
 }

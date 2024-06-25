@@ -9,14 +9,16 @@ class MiembroSociedad extends Model
 {
     use HasFactory;
 
-
     protected $table = 'miembros-sociedades';
-
     protected $fillable = [
-        'miembro', 
-        'cargo', 
-        'sociedad'
+        'miembro',
+        'sociedad',
     ];
+
+    public function miembro()
+    {
+        return $this->belongsTo(Miembro::class, 'miembro', 'cedula');
+    }
 
     public function sociedad()
     {

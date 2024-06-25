@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SociedadRequest;
 use App\Models\Sociedad;
+use App\Models\Miembro;
 use Illuminate\Http\Request;
 
 class SociedadController extends Controller
@@ -27,18 +29,44 @@ class SociedadController extends Controller
         return redirect()->route('sociedades.lista');
     }
 
-    // public function show($nombre)
-    // {
-    //     $sociedades = Sociedad::findOrFail($nombre);
-    
-    //     return view('sociedades.show', compact('sociedades'));
-        
-    // }
+
+    public function edit($nombre)
+    {
+        $sociedad = Sociedad::where('nombre', $nombre)->firstOrFail();
+        return view('sociedades.edit', compact('sociedad'));
+    }
+
+
+
+
+    public function update(SociedadRequest $request, $nombre)
+        {
+            $sociedad = Sociedad::where('nombre', $nombre)->firstOrFail();
+
+            $sociedad->update($request->all());
+            
+            return redirect()->route('sociedades.lista')->with('success', 'Sociedad actualizada correctamente.');
+        }
+
+
+
 
     public function show($nombre)
     {
-        $sociedades = Sociedad::with('miembrosSociedad')->findOrFail($nombre);
-        return view('sociedades.show', compact('sociedades'));
-    }
+        $sociedades = Sociedad::findOrFail($nombre);
+        $miembros = Miembro::where('sociedad_id', $sociedades->id_sociedad)->paginate(10);
+        $numeroMiembros = Miembro::where('sociedad_id', $sociedades->id_sociedad)->get();
+        $totalMiembros = $numeroMiembros->count();
+        $nombrePastor = Miembro::where('cedula', $sociedades->pastor)->value('nombres') .' '.  Miembro::where('cedula', $sociedades->pastor)->value('apellidos');
+    
+        // Obtener el nombre de la pastora
+        $nombrePastora = Miembro::where('cedula', $sociedades->pastora)->value('nombres') .' '.  Miembro::where('cedula', $sociedades->pastora)->value('apellidos');
+        
+        // Verificar si se encontraron los nombres o manejar el caso si no se encuentran
+        
+        return view('sociedades.show', compact('sociedades', 'miembros', 'totalMiembros', 'nombrePastor', 'nombrePastora'));
+}
+
 
 }
+

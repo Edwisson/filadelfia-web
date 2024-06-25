@@ -18,8 +18,10 @@ class Sociedad extends Model
 
     protected $fillable = [
         'nombre',
+        'descripcion',
         'n_miembros',
-        'descripcion'
+        'pastor',
+        'pastora',
     ];
 
     public function miembrosSociedad()

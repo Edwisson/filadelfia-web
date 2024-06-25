@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sociedades', function (Blueprint $table) {
-            $table->string('nombre')->primary();
-            
-            // Tomar en nota que se puso nullable como prueba, ya que de esta forma funciona la busqueda
-            $table->unsignedInteger('n_miembros')->nullable();
+            $table->id('id_sociedad');
+            $table->string('nombre');
+            $table->unsignedInteger('n_miembros')->default(0);
             $table->text('descripcion');
-
+            $table->unsignedInteger('pastor');
+            $table->unsignedInteger('pastora');
             $table->timestamps();
         });
     }

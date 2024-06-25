@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="titulo_listas">Miembros</h1>
+<section class="margin_container info_listas ">
+<h1>Miembros</h1>
+<p class="contenido_listas">Miembros totales: {{ $totalMiembros}} </p>
+</section>
+
 <section class="contenedor_listas margin_container">
     <table border="1" class="tabla_listas">
 

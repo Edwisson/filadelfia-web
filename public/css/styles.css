@@ -1,9 +1,9 @@
 :root {
-    --paper: hsl(60, 19%, 95%);
+    --paper: #fdf8f0;
     --fondo: #e7eaf2;
     --aluminum: #acbebe;
     --ink: #20232a;
-    --ruby: #a01d26;
+    --ruby: #F0122D;
     --blue: #302f72;
 }
 
@@ -62,6 +62,7 @@ p {
 
 h3 {
     font-size: 32px;
+    color: var(--ink);
 }
 
 /* Establece un margen para que el contenido de la pagina
@@ -296,8 +297,8 @@ se alinie  con la barra de navegacion*/
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 0 25px var(--aluminum);
-    border-radius: 10px;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .tabla_listas {
@@ -310,11 +311,15 @@ se alinie  con la barra de navegacion*/
 .contenido_listas {
     display: flex;
 
-    text-align: center;
+   
     padding: 5px;
     border: 0;
     margin: 5px;
     background-color: white;
+}
+
+.contenido_listas h3{
+   color: var(--ink);
 }
 
 .contenido_listas a {
@@ -394,4 +399,31 @@ se alinie  con la barra de navegacion*/
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 65px);
     margin: auto;
+    text-align: right;
+}
+
+.info_listas{
+    box-shadow: 0 0 25px var(--aluminum);
+    padding: 20px;
+    margin-top:  50px;
+    margin-bottom:  50px;
+}
+
+.info_listas div{
+    margin-bottom: 10px;
+}
+
+.info_listas p{
+    margin:10px;
+    padding: 10px 0px;
+
+}
+
+.info_listas a{
+    padding: 10px 0px;
+}
+
+.info_listas h3{
+    text-align: left;
+    margin: 10px;
 }
