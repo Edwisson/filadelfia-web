@@ -33,8 +33,8 @@ class Miembro extends Model
         'genero',
         'sociedad_id',
     ];
-    public function miembros()
+    public function eventos()
     {
-        return $this->belongsToMany(Miembro::class, 'miembros-eventos')->withTimestamps();
+        return $this->belongsToMany(Miembro::class, 'miembros-eventos','miembro','evento')->withTimestamps();
     }
 }

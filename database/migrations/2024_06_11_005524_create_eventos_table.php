@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->enum('tipo', ['culto','vigilia','evangelismo','bautizo']);
+            $table->string('tipo');
             $table->date('fecha');
             $table->string('ubicacion');
             $table->text('descripcion');
