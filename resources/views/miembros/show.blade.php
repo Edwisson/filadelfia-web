@@ -51,6 +51,7 @@
                 <td>{{ $miembros->necesidades }}</td>
             </tr>
         </table>
+        <a href="{{route('miembros.edit', $miembros)}}" class="btn btn-primary">Editar</a>
     </div>
 </section>
 

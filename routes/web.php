@@ -29,6 +29,10 @@ Route::get('/miembros/{cedula}', [MiembroController::class, 'show'])->name('miem
 
 Route::get('/miembros', [MiembroController::class,'mensajes'])->name('miembros.miembros');
 
+Route::get('miembros/{miembros}/edit', [MiembroController::class, 'edit'])->name('miembros.edit');
+
+Route::put('miembros/{miembros}', [MiembroController::class, 'update'])->name('miembros.update');
+
 
 
 //carpeta eventos
@@ -40,6 +44,9 @@ Route::get('/evento/{id}', [EventoController::class, 'show'])->name('evento.show
 
 Route::get('/evento', [EventoController::class, 'mensajes'])->name('evento.mensajes');
 
+Route::get('evento/{evento}/edit', [EventoController::class, 'edit'])->name('evento.edit');
+
+Route::put('evento/{evento}', [EventoController::class, 'update'])->name('evento.update');
 
 
 // Carpeta sociedades
