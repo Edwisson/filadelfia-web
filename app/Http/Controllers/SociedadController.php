@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SociedadRequest;
 use App\Models\Sociedad;
 use App\Models\Miembro;
 use Illuminate\Http\Request;
@@ -27,6 +28,28 @@ class SociedadController extends Controller
 
         return redirect()->route('sociedades.lista');
     }
+
+
+    public function edit($nombre)
+    {
+        $sociedad = Sociedad::where('nombre', $nombre)->firstOrFail();
+        return view('sociedades.edit', compact('sociedad'));
+    }
+
+
+
+
+    public function update(SociedadRequest $request, $nombre)
+        {
+            $sociedad = Sociedad::where('nombre', $nombre)->firstOrFail();
+
+            $sociedad->update($request->all());
+            
+            return redirect()->route('sociedades.lista')->with('success', 'Sociedad actualizada correctamente.');
+        }
+
+
+
 
     public function show($nombre)
     {

@@ -11,7 +11,7 @@
             <td class="contenido_listas">
                 <a href="{{ route('sociedades.show', ['nombre' => $sociedad->nombre])}}">
                     <p>
-                        {{ $sociedad->nombre }}
+                        {{ $sociedad->nombre }} <a href="{{ route('sociedades.edit', ['nombre' => $sociedad->nombre]) }}">Editar</a>
                     </p>
                 </a>
             </td>
@@ -22,3 +22,6 @@
 
 {{ $sociedades->links() }}
 @endsection
+
+
+

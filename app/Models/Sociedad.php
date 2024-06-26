@@ -23,4 +23,11 @@ class Sociedad extends Model
         'pastor',
         'pastora',
     ];
+
+    public function miembrosSociedad()
+    {
+        return $this->hasMany(MiembroSociedad::class, 'sociedad', 'nombre');
+    }
+
+    
 }

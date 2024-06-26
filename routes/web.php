@@ -59,3 +59,5 @@ Route::post('/sociedades/store', [SociedadController::class, 'store'])->name('so
 Route::get('/sociedades/{nombre}', [SociedadController::class, 'show'])->name('sociedades.show');
 Route::get('/sociedades',[SociedadController::class, 'lista'])->name('sociedades.lista');
 
+Route::get('/sociedades/edit/{nombre}', [SociedadController::class, 'edit'])->name('sociedades.edit');
+
