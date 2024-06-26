@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('eventos', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo');
-            $table->date('fecha');
-            $table->string('ubicacion');
-            $table->text('descripcion');
-            $table->timestamps();
+        Schema::table('miembros', function (Blueprint $table) {
+            $table->foreign('sociedad_id')->references('id_sociedad')->on('sociedades')->onDelete('cascade');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('eventos');
+        Schema::table('miembros', function (Blueprint $table) {
+            $table->dropForeign(['sociedad_id']);
+        });
     }
 };

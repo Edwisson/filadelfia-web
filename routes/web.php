@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\SociedadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactoController;
@@ -27,7 +28,7 @@ Route::post('/miembros/store', [MiembroController::class, 'store'])->name('miemb
 
 Route::get('/miembros/{cedula}', [MiembroController::class, 'show'])->name('miembros.show');
 
-Route::get('/miembros', [MiembroController::class,'mensajes'])->name('miembros.miembros');
+Route::get('/miembros', [MiembroController::class,'listas'])->name('miembros.miembros');
 
 Route::get('miembros/{miembros}/edit', [MiembroController::class, 'edit'])->name('miembros.edit');
 
@@ -36,18 +37,20 @@ Route::put('miembros/{miembros}', [MiembroController::class, 'update'])->name('m
 
 
 //carpeta eventos
-Route::get('/evento/create', [EventoController::class, 'create'])->name('evento.create');
+Route::get('/eventos/create', [EventoController::class, 'create'])->name('evento.create');
 
 Route::post('/evento/store', [EventoController::class, 'store'])->name('evento.store');
 
 Route::get('/evento/{id}', [EventoController::class, 'show'])->name('evento.show');
 
-Route::get('/evento', [EventoController::class, 'mensajes'])->name('evento.mensajes');
+Route::get('/eventos', [EventoController::class, 'mensajes'])->name('evento.mensajes');
 
 Route::get('evento/{evento}/edit', [EventoController::class, 'edit'])->name('evento.edit');
 
 Route::put('evento/{evento}', [EventoController::class, 'update'])->name('evento.update');
+Route::get('/asistencia/create', [AsistenciaController::class, 'create'])->name('asistencia.create');
 
+Route::post('/asistencia/store', [AsistenciaController::class, 'store'])->name('asistencia.store');
 
 // Carpeta sociedades
 
@@ -55,3 +58,4 @@ Route::get('/sociedades/create',[SociedadController::class, 'create'])->name('so
 Route::post('/sociedades/store', [SociedadController::class, 'store'])->name('sociedades.store');
 Route::get('/sociedades/{nombre}', [SociedadController::class, 'show'])->name('sociedades.show');
 Route::get('/sociedades',[SociedadController::class, 'lista'])->name('sociedades.lista');
+
