@@ -13,7 +13,7 @@
         <div class="mostrar_largo">
             <p> {{ $evento->descripcion }}</p>
         </div>
-
+        <a href="{{route('evento.edit', $evento)}}" class="btn btn-primary">Editar</a>
     </div>
 </section>
 @endsection

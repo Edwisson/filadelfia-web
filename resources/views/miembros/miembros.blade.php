@@ -11,19 +11,30 @@
 
         @foreach($miembros as $miembro)
         <tr>
-
+    
             <td class="contenido_listas">
                 <a href="{{ route('miembros.show', ['cedula' => $miembro->cedula]) }}">{{$miembro->nombres}} {{ $miembro->apellidos }} {{ $miembro->cedula}}
+                <td>
+
+                </form>
+                   
+                </td>
                     <p>
                         {{ $miembro->created_at }}
+                        
                     </p>
+                    
                 </a>
             </td>
 
         </tr>
+        
         @endforeach
     </table>
+    
 </section>
 
 {{ $miembros->links() }}
+
 @endsection
+

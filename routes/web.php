@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\SociedadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactoController;
@@ -29,6 +30,10 @@ Route::get('/miembros/{cedula}', [MiembroController::class, 'show'])->name('miem
 
 Route::get('/miembros', [MiembroController::class,'listas'])->name('miembros.miembros');
 
+Route::get('miembros/{miembros}/edit', [MiembroController::class, 'edit'])->name('miembros.edit');
+
+Route::put('miembros/{miembros}', [MiembroController::class, 'update'])->name('miembros.update');
+
 
 
 //carpeta eventos
@@ -40,7 +45,12 @@ Route::get('/evento/{id}', [EventoController::class, 'show'])->name('evento.show
 
 Route::get('/eventos', [EventoController::class, 'mensajes'])->name('evento.mensajes');
 
+Route::get('evento/{evento}/edit', [EventoController::class, 'edit'])->name('evento.edit');
 
+Route::put('evento/{evento}', [EventoController::class, 'update'])->name('evento.update');
+Route::get('/asistencia/create', [AsistenciaController::class, 'create'])->name('asistencia.create');
+
+Route::post('/asistencia/store', [AsistenciaController::class, 'store'])->name('asistencia.store');
 
 // Carpeta sociedades
 
@@ -50,8 +60,4 @@ Route::get('/sociedades/{nombre}', [SociedadController::class, 'show'])->name('s
 Route::get('/sociedades',[SociedadController::class, 'lista'])->name('sociedades.lista');
 
 Route::get('/sociedades/edit/{nombre}', [SociedadController::class, 'edit'])->name('sociedades.edit');
-Route::put('/sociedades/{nombre}', [SociedadController::class, 'update'])->name('sociedades.update');
 
-
-
-Route::get('/asistencia/create', [AsistenciaController::class, 'create'])->name('asistencia.create');
