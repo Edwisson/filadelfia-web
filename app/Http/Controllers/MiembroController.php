@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\View;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Miembro;
 use App\Models\Sociedad;
 
@@ -89,4 +91,21 @@ private function determinarSociedad($edad, $genero)
         $miembro = Miembro::findOrFail($cedula);
         return view('miembros.show', compact('miembro'));
     }
+
+
+
+    public function edit(Miembro $miembros)
+    {
+        return view('miembros.edit', ['miembros' => $miembros]);
+    }
+
+   
+    public function update(Request $request, Miembro $miembros): RedirectResponse
+    {
+        //validacion:
+
+        $miembros->update($request->all());
+        return redirect()->route('miembros.miembros')->with('success', 'Nueva tarea actualizada exitosamente!');
+    }
+
 }
