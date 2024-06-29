@@ -57,7 +57,7 @@
                 <option value="no" @selected("no" == $miembros->bautizado)>No</option>
             </select>
 
-            <button type="submit" class="boton_contacto">Editar</button>
+            <button type="submit" class="boton_contacto">Actualizar</button>
         </form>
 
     </div>

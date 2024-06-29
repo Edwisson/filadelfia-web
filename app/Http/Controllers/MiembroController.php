@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\View;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Miembro;
+use App\Models\Evento;
+use App\Models\MiembroEvento;
 use App\Models\Sociedad;
 
 class MiembroController extends Controller
@@ -108,4 +110,16 @@ private function determinarSociedad($edad, $genero)
         return redirect()->route('miembros.miembros')->with('success', 'Nueva tarea actualizada exitosamente!');
     }
 
+    public function asistencias(Miembro $miembros)
+    {
+        // Obtener las asistencias directamente usando el modelo pivote
+        $asistencias = MiembroEvento::where('miembro', $miembros->cedula)->join('eventos', 'miembros-eventos.evento', '=', 'eventos.id') // Aquí 'evento' es la columna en 'miembros_eventos' y 'id' es la columna en 'eventos'
+        ->select('eventos.*') // Selecciona todos los campos de la tabla 'eventos'
+        ->get();
+        $totalAsistencias = $asistencias->count();
+
+        return view('miembros.listaAsistencias', compact('asistencias', 'totalAsistencias', 'miembros'));
+    }
 }
+
+    

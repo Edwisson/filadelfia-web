@@ -20,7 +20,7 @@ class Evento extends Model
 
     public function miembros()
     {
-        return $this->belongsToMany(Evento::class, 'miembros-eventos', 'evento', 'miembros')->withTimestamps();
+        return $this->belongsToMany(Miembro::class, 'miembros-eventos', 'evento', 'miembros')->withTimestamps();
     }
 
 }

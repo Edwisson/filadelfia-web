@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('miembros-eventos', function (Blueprint $table) {
             $table->unsignedInteger('miembro');
-            $table->string('funcion');
-            $table->id('evento');
+            $table->unsignedBigInteger('evento');
             $table->timestamps();
 
             $table->foreign('miembro')->references('cedula')->on('miembros')->onDelete('cascade');

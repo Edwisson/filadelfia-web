@@ -4,8 +4,7 @@
 <section class="contenedor_mostrar_flex">
     <div class="mostrar">
 
-        <h1>Información del Evento</h1>
-        <p>Evento ID: {{ $evento->id }}</p>
+        <h1>{{ $evento->tipo }}</h1>
         <p>Tipo: {{ $evento->tipo }}</p>
         <p>Fecha: {{ $evento->fecha }}</p>
         <p>Ubicación: {{ $evento->ubicacion }}</p>
@@ -14,6 +13,7 @@
             <p> {{ $evento->descripcion }}</p>
         </div>
         <a href="{{route('evento.edit', $evento)}}" class="btn btn-primary">Editar</a>
+        <a href="{{route('evento.listaAsistencias', $evento)}}" class="btn btn-primary">asistencias</a>
     </div>
 </section>
 @endsection

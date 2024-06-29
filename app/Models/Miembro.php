@@ -35,6 +35,6 @@ class Miembro extends Model
     ];
     public function eventos()
     {
-        return $this->belongsToMany(Miembro::class, 'miembros-eventos','miembro','evento')->withTimestamps();
+        return $this->belongsToMany(Evento::class, 'miembros-eventos','miembro','evento')->withTimestamps();
     }
 }

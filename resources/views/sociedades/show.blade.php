@@ -19,6 +19,9 @@
         {{ $nombrePastora}} {{ $sociedades->pastora }} 
         </a>
     </div>
+    <div>
+        <a href="{{ route('sociedades.edit', ['nombre' => $sociedades->nombre]) }}">Edit</a>
+    </div>
 
 
 
