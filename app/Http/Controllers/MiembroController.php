@@ -3,28 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\View;
 use Illuminate\Http\RedirectResponse;
-use App\Models\Miembro;
-use App\Models\Evento;
 use App\Models\MiembroEvento;
+use App\Models\Miembro;
 use App\Models\Sociedad;
 
 class MiembroController extends Controller
 {
 
-    public function listas()
+    public function listas(Request $request)
     {
-        $miembros = Miembro::paginate(10);
-        $totalMiembros = $miembros -> count();
-        return view('miembros.miembros', compact('miembros','totalMiembros'));
+        $query = $request->get('query'); // Obtener el término de búsqueda desde la URL
+
+        // Obtener todos los miembros o filtrar por búsqueda
+        $miembrosQuery = Miembro::query();
+        
+        if ($query) {
+            $miembrosQuery->where('cedula', $query)
+                          ->orWhere('nombres', 'like', '%' . $query . '%')
+                          ->orWhere('apellidos', 'like', '%' . $query . '%');
+        }
+
+        $miembros = $miembrosQuery->paginate(10); // Paginar resultados
+        $totalMiembros = Miembro::count();
+
+        // Retornar la vista con los resultados de la búsqueda y el término de búsqueda
+        return view('miembros.miembros', compact('miembros', 'totalMiembros', 'query'));
     }
 
     public function create()
     {
         return view('miembros.create');
     }
-
 
     public function store(Request $request)
     {
@@ -70,23 +80,23 @@ class MiembroController extends Controller
         return redirect()->route('miembros.miembros');
     }
 
-private function determinarSociedad($edad, $genero)
-{
-    switch (true) {
-        case $edad >= 0 && $edad <= 8:
-            return 'Niños';
-        case $edad >= 9 && $edad <= 11:
-            return 'Preadolescentes';
-        case $edad >= 12 && $edad <= 17:
-            return 'Adolescentes';
-        case $edad >= 18 && $edad <= 29:
-            return 'Jóvenes';
-        case $edad >= 30:
-            return $genero === 'hombre' ? 'Caballeros' : 'Damas';
-        default:
-            return 'Otra Sociedad'; // Manejar caso por defecto o error
+    private function determinarSociedad($edad, $genero)
+    {
+        switch (true) {
+            case $edad >= 0 && $edad <= 8:
+                return 'Niños';
+            case $edad >= 9 && $edad <= 11:
+                return 'Preadolescentes';
+            case $edad >= 12 && $edad <= 17:
+                return 'Adolescentes';
+            case $edad >= 18 && $edad <= 29:
+                return 'Jóvenes';
+            case $edad >= 30:
+                return $genero === 'hombre' ? 'Caballeros' : 'Damas';
+            default:
+                return 'Otra Sociedad'; // Manejar caso por defecto o error
+        }
     }
-}
 
     public function show($cedula)
     {
@@ -94,32 +104,51 @@ private function determinarSociedad($edad, $genero)
         return view('miembros.show', compact('miembro'));
     }
 
-
-
-    public function edit(Miembro $miembros)
+    public function edit(Miembro $miembro)
     {
-        return view('miembros.edit', ['miembros' => $miembros]);
+        return view('miembros.edit', compact('miembro'));
     }
 
-   
-    public function update(Request $request, Miembro $miembros): RedirectResponse
+    public function update(Request $request, Miembro $miembro): RedirectResponse
     {
-        //validacion:
+        $validatedData = $request->validate([
+            'nombres' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'direccion' => 'required|string|max:255',
+            'telefono' => 'required|integer',
+            'estado_civil' => 'required|in:soltero,casado,viudo',
+            'edad' => 'required|integer|min:0',
+            'estado_salud' => 'required|string|max:255',
+            'descripcion_salud' => 'nullable|string',
+            'estado_economico' => 'required|string|max:255',
+            'descripcion_economica' => 'nullable|string',
+            'necesidades' => 'nullable|string',
+            'bautizado' => 'required|boolean',
+            'genero' => 'required|string|max:255',
+            'sociedad_id' => 'required|integer'
+        ]);
 
-        $miembros->update($request->all());
-        return redirect()->route('miembros.miembros')->with('success', 'Nueva tarea actualizada exitosamente!');
+        $miembro->update($validatedData);
+
+        return redirect()->route('miembros.miembros')->with('success', 'Miembro actualizado exitosamente');
     }
 
-    public function asistencias(Miembro $miembros)
+    public function destroy(Miembro $miembro): RedirectResponse
+    {
+        $miembro->delete();
+
+        return redirect()->route('miembros.miembros')->with('success', 'Miembro eliminado exitosamente');
+    }
+
+    public function asistencias(Miembro $miembro)
     {
         // Obtener las asistencias directamente usando el modelo pivote
-        $asistencias = MiembroEvento::where('miembro', $miembros->cedula)->join('eventos', 'miembros-eventos.evento', '=', 'eventos.id') // Aquí 'evento' es la columna en 'miembros_eventos' y 'id' es la columna en 'eventos'
-        ->select('eventos.*') // Selecciona todos los campos de la tabla 'eventos'
-        ->get();
+        $asistencias = MiembroEvento::where('miembro', $miembro->cedula)->join('eventos', 'miembros-eventos.evento', '=', 'eventos.id')
+            ->select('eventos.*')
+            ->get();
         $totalAsistencias = $asistencias->count();
 
-        return view('miembros.listaAsistencias', compact('asistencias', 'totalAsistencias', 'miembros'));
+        return view('miembros.listaAsistencias', compact('asistencias', 'totalAsistencias', 'miembro'));
     }
-}
 
-    
+}

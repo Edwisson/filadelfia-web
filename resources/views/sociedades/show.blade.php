@@ -28,6 +28,7 @@
 </section>
 
 <section class="contenedor_listas margin_container">
+    
     <table border="1" class="tabla_listas">
         @foreach($miembros as $miembro)
         <tr>

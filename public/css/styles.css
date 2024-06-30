@@ -427,3 +427,9 @@ se alinie  con la barra de navegacion*/
     text-align: left;
     margin: 10px;
 }
+
+.busqueda{
+    margin: 40px;
+    margin-bottom: 0;
+}
+

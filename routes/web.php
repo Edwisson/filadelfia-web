@@ -47,6 +47,6 @@ Route::get('/sociedades/create',[SociedadController::class, 'create'])->name('so
 Route::post('/sociedades/store', [SociedadController::class, 'store'])->name('sociedades.store');
 Route::get('/sociedades/{nombre}', [SociedadController::class, 'show'])->name('sociedades.show');
 Route::get('/sociedades',[SociedadController::class, 'lista'])->name('sociedades.lista');
-
+Route::get('/miembros/buscar', [MiembroController::class, 'buscar'])->name('miembros.buscar');
 Route::get('/sociedades/edit/{nombre}', [SociedadController::class, 'edit'])->name('sociedades.edit');
 Route::put('/sociedades/{nombre}', [SociedadController::class, 'update'])->name('sociedades.update');
