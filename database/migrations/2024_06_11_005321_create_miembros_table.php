@@ -17,14 +17,16 @@ return new class extends Migration
             $table->string('apellidos');
             $table->string('direccion');
             $table->unsignedInteger('telefono');
-            $table->enum('estado_civil',['soltero','casado','viudo']);
+            $table->enum('estado_civil', ['soltero', 'casado', 'viudo']);
             $table->unsignedSmallInteger('edad');
-            $table->boolean('estado_salud');
-            $table->text('descripcion_salud');
-            $table->boolean('estado_economico');
-            $table->text('descripcion_economica');
-            $table->text('necesidades');
+            $table->string('estado_salud');
+            $table->text('descripcion_salud')->nullable();
+            $table->string('estado_economico');
+            $table->text('descripcion_economica')->nullable();
+            $table->text('necesidades')->nullable();
             $table->boolean('bautizado');
+            $table->string('genero');
+            $table->unsignedBigInteger('sociedad_id')->default(1);
             $table->timestamps();
         });
     }

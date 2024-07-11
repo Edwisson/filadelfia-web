@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sociedades', function (Blueprint $table) {
-            $table->string('nombre')->primary();
-            $table->unsignedInteger('n_miembros');
+            $table->id('id_sociedad');
+            $table->string('nombre');
+            $table->unsignedInteger('n_miembros')->default(0);
+            $table->text('descripcion')->nullable();;
+            $table->unsignedInteger('pastor');
+            $table->unsignedInteger('pastora');
             $table->timestamps();
         });
     }
