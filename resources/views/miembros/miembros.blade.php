@@ -29,6 +29,11 @@
         </table>
 
         {{ $miembros->appends(['query' => $query])->links() }} <!-- Paginación con término de búsqueda -->
+        <div class="boton">
+            <a href="{{ url()->previous() }}">Volver</a>
+            <a href="{{ route('miembros.create') }}">Registrar</a>
+        </div>
+        
     </section>
 </div>
 @endsection

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class SociedadController extends Controller
 {
-    public function lista()
+    public function lista() //muestra la lista de sociedades
     {
         $sociedades = Sociedad::paginate(10);
         
@@ -17,12 +17,12 @@ class SociedadController extends Controller
         return view('sociedades.lista', compact('sociedades'));
     }
 
-    public function create()
+    public function create() //retorna al formulario de registro de una sociedad
     {
         return view('sociedades.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request) //registra la sociedad
     {
         Sociedad::create($request->all());
 
@@ -30,7 +30,7 @@ class SociedadController extends Controller
     }
 
 
-    public function edit($nombre)
+    public function edit($nombre) //edita la informacion de una sociedad
     {
         $sociedad = Sociedad::where('nombre', $nombre)->firstOrFail();
         return view('sociedades.edit', compact('sociedad'));
@@ -39,7 +39,7 @@ class SociedadController extends Controller
 
 
 
-    public function update(SociedadRequest $request, $nombre)
+    public function update(SociedadRequest $request, $nombre) //actualiza la info de la sociedad
         {
             $sociedad = Sociedad::where('nombre', $nombre)->firstOrFail();
 
@@ -51,7 +51,7 @@ class SociedadController extends Controller
 
 
 
-    public function show($nombre)
+    public function show($nombre) // muestra los datos de una sociedad, incluyendo los miembros
     {
         $sociedades = Sociedad::findOrFail($nombre);
         $miembros = Miembro::where('sociedad_id', $sociedades->id_sociedad)->paginate(10);

@@ -13,8 +13,8 @@ Route::get('/', function () {
 
 Route::get('/contactos/create', [ContactoController::class, 'create'])->name('contactos.create');
 Route::post('/contactos/store', [ContactoController::class, 'store'])->name('contacto.store');
-Route::get('/intranet/{id}', [ContactoController::class, 'show'])->name('intranet.show');
-Route::get('/intranet', [ContactoController::class,'intranetMensajes'])->name('intranet.mensajes');
+Route::get('/contacto/{id}', [ContactoController::class, 'show'])->name('intranet.show');
+Route::get('/contacto', [ContactoController::class,'intranetMensajes'])->name('contacto.mensajes');
 
 // Carpeta miembros
 
@@ -22,9 +22,9 @@ Route::get('/miembros/create', [MiembroController::class, 'create'])->name('miem
 Route::post('/miembros/store', [MiembroController::class, 'store'])->name('miembros.store');
 Route::get('/miembros/{cedula}', [MiembroController::class, 'show'])->name('miembros.show');
 Route::get('/miembros', [MiembroController::class,'listas'])->name('miembros.miembros');
-Route::get('miembros/{miembros}/edit', [MiembroController::class, 'edit'])->name('miembros.edit');
-Route::put('miembros/{miembros}', [MiembroController::class, 'update'])->name('miembros.update');
-Route::get('/miembros/{miembros}/asistencias', [MiembroController::class, 'asistencias'])->name('miembros.listaAsistencias');
+Route::get('miembros/{miembro}/edit', [MiembroController::class, 'edit'])->name('miembros.edit');
+Route::put('miembros/{miembro}', [MiembroController::class, 'update'])->name('miembros.update');
+Route::get('/miembros/{miembro}/asistencias', [MiembroController::class, 'asistencias'])->name('miembros.listaAsistencias');
 
 //carpeta eventos
 

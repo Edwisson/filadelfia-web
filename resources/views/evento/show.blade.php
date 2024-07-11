@@ -12,8 +12,13 @@
         <div class="mostrar_largo">
             <p> {{ $evento->descripcion }}</p>
         </div>
-        <a href="{{route('evento.edit', $evento)}}" class="btn btn-primary">Editar</a>
-        <a href="{{route('evento.listaAsistencias', $evento)}}" class="btn btn-primary">asistencias</a>
+        <div class="boton">
+             <a href="{{ url()->previous() }}">Volver</a>
+             <a href="{{route('evento.edit', $evento)}}" >Editar</a> 
+            <a href="{{route('evento.listaAsistencias', $evento)}}" >asistencias</a>
+        </div>
+       
+        
     </div>
 </section>
 @endsection

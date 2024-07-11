@@ -13,9 +13,9 @@ class MiembroController extends Controller
 
     public function listas(Request $request)
     {
-        $query = $request->get('query'); // Obtener el término de búsqueda desde la URL
+        $query = $request->get('query'); // Obtiene el término de búsqueda desde la URL
 
-        // Obtener todos los miembros o filtrar por búsqueda
+        // Obtiene todos los miembros o filtrar por búsqueda
         $miembrosQuery = Miembro::query();
         
         if ($query) {
@@ -24,28 +24,28 @@ class MiembroController extends Controller
                           ->orWhere('apellidos', 'like', '%' . $query . '%');
         }
 
-        $miembros = $miembrosQuery->paginate(10); // Paginar resultados
+        $miembros = $miembrosQuery->paginate(10); // Pagina los resultados
         $totalMiembros = Miembro::count();
 
         // Retornar la vista con los resultados de la búsqueda y el término de búsqueda
         return view('miembros.miembros', compact('miembros', 'totalMiembros', 'query'));
     }
 
-    public function create()
+    public function create() //retorna a la vista con el fformulario para registrar un miembro
     {
         return view('miembros.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request) //registra el miembro
     {
-        // Convertir tipos de datos manualmente
+        // Convierte los tipos de datos manualmente
         $data = $request->all();
         $data['cedula'] = (int) $data['cedula'];
         $data['telefono'] = (int) $data['telefono'];
         $data['edad'] = (int) $data['edad'];
         $data['bautizado'] = (bool) $data['bautizado'];
         
-        // Asignar la sociedad_id dinámicamente
+        // Asigna la sociedad_id dinámicamente
         $sociedadNombre = $this->determinarSociedad($data['edad'], $data['genero']);
         $sociedad = Sociedad::where('nombre', $sociedadNombre)->first();
         if ($sociedad) {
@@ -74,13 +74,13 @@ class MiembroController extends Controller
             'sociedad_id' => 'required|integer'
         ]);
         
-        // Crear el nuevo miembro
+        // Crea el nuevo miembro
         Miembro::create($validatedData);
     
         return redirect()->route('miembros.miembros');
     }
 
-    private function determinarSociedad($edad, $genero)
+    private function determinarSociedad($edad, $genero) //determina la sociedad a la que pertenece un miembro segun la edad
     {
         switch (true) {
             case $edad >= 0 && $edad <= 8:
@@ -98,20 +98,30 @@ class MiembroController extends Controller
         }
     }
 
-    public function show($cedula)
+    public function show($cedula) //muestra los datos de un miembro
     {
         $miembro = Miembro::findOrFail($cedula);
         return view('miembros.show', compact('miembro'));
     }
 
-    public function edit(Miembro $miembro)
+    public function edit(Miembro $miembro) //edita la informacion de un miembro
     {
         return view('miembros.edit', compact('miembro'));
     }
 
-    public function update(Request $request, Miembro $miembro): RedirectResponse
-    {
-        $validatedData = $request->validate([
+    public function update(Request $request, Miembro $miembro): RedirectResponse //actualiza la informacion
+    {   
+        
+        $data = $request->all();
+        $data['cedula'] = (int) $data['cedula'];
+        $data['telefono'] = (int) $data['telefono'];
+        $data['edad'] = (int) $data['edad'];
+        $data['bautizado'] = (bool) $data['bautizado'];
+
+        $adjustedRequest = new Request($data);
+        
+        $validatedData = $adjustedRequest->validate([
+            'cedula' => 'required|integer',
             'nombres' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
             'direccion' => 'required|string|max:255',
@@ -125,11 +135,9 @@ class MiembroController extends Controller
             'necesidades' => 'nullable|string',
             'bautizado' => 'required|boolean',
             'genero' => 'required|string|max:255',
-            'sociedad_id' => 'required|integer'
         ]);
 
         $miembro->update($validatedData);
-
         return redirect()->route('miembros.miembros')->with('success', 'Miembro actualizado exitosamente');
     }
 
@@ -140,14 +148,14 @@ class MiembroController extends Controller
         return redirect()->route('miembros.miembros')->with('success', 'Miembro eliminado exitosamente');
     }
 
-    public function asistencias(Miembro $miembro)
+    public function asistencias(Miembro $miembro) //muestra las asistencias de un miembro
     {
+        
         // Obtener las asistencias directamente usando el modelo pivote
         $asistencias = MiembroEvento::where('miembro', $miembro->cedula)->join('eventos', 'miembros-eventos.evento', '=', 'eventos.id')
             ->select('eventos.*')
             ->get();
         $totalAsistencias = $asistencias->count();
-
         return view('miembros.listaAsistencias', compact('asistencias', 'totalAsistencias', 'miembro'));
     }
 

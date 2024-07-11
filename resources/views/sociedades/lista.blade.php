@@ -18,6 +18,10 @@
         </tr>
         @endforeach
     </table>
+    <div class="boton">
+        <a href="{{ url()->previous() }}">Volver</a>
+        <a href="{{ route('sociedades.create')}}">Crear</a>
+    </div>
 </section>
 
 {{ $sociedades->links() }}

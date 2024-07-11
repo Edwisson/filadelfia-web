@@ -21,6 +21,10 @@
         </tr>
         @endforeach
     </table>
+    <div class="boton">
+        <a href="{{ url()->previous() }}">Volver</a>
+        <a href="{{ route('contactos.create')}}">Crear</a> 
+    </div>
 </section>
 
 {{ $contactos->links() }}

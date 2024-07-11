@@ -433,3 +433,18 @@ se alinie  con la barra de navegacion*/
     margin-bottom: 0;
 }
 
+.boton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.boton a{
+    margin: 15px;
+    text-decoration: none;
+    background-color: var(--blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--paper);
+}

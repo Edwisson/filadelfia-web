@@ -12,7 +12,7 @@ class AsistenciaController extends Controller
         return view('asistencia.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request) //registra las asistencias
     { 
         $data = $request->all();
         $data['miembro_id'] = (int) $data['miembro_id'];

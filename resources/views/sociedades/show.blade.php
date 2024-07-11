@@ -19,7 +19,7 @@
         {{ $nombrePastora}} {{ $sociedades->pastora }} 
         </a>
     </div>
-    <div>
+    <div class="boton">
         <a href="{{ route('sociedades.edit', ['nombre' => $sociedades->nombre]) }}">Edit</a>
     </div>
 
@@ -41,6 +41,7 @@
         </tr>
         @endforeach
     </table>
+    <div class="boton"> <a href="{{ url()->previous() }}">Volver</a></div>
 </section>
 {{ $miembros->links() }}
 @endsection

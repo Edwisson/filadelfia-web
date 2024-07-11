@@ -18,7 +18,7 @@
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum dicta labore illum itaque expedita! At ad quibusdam voluptas,
                         illum dolores repellat iste voluptatibus, officia dolorum dolor, inventore saepe numquam a.</p>
                     <div class="boton_unir">
-                        <a href="#">Unetenos!</a>
+                        <a href="{{route('contactos.create')}}">Unetenos!</a>
                     </div>
                 </div>
             </div>

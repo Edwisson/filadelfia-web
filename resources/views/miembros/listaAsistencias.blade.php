@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="margin_container info_listas ">
-    <h1>{{ $miembros->nombres }} <span>{{ $miembros->apellidos }}</span></h1>
+    <h1>{{ $miembro->nombres }} <span>{{ $miembro->apellidos }}</span></h1>
     <p class="contenido_listas">Asistencias totales: {{ $totalAsistencias}} </p>
 </section>
 <section class="contenedor_listas margin_container">
@@ -11,7 +11,7 @@
         @foreach($asistencias as $asistencia)
         <tr>
             <td class="contenido_listas">
-                <a href="#">
+                <a href="{{ route('evento.show', ['id' => $asistencia->id]) }}">
                     {{ $asistencia->tipo }}
                     {{ $asistencia->fecha }}
                 </a>
@@ -19,6 +19,7 @@
         </tr>
         @endforeach
     </table>
+    <div class="boton"> <a href="{{ url()->previous() }}">Volver</a></div>
 </section>
 
 

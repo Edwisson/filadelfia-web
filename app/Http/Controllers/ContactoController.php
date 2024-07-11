@@ -16,7 +16,7 @@ class ContactoController extends Controller
 
 
 
-    public function intranetMensajes()
+    public function intranetMensajes() //muestra los mensajes de contacto
     {
         $contactos = Contacto::paginate(10);
         
@@ -29,23 +29,23 @@ class ContactoController extends Controller
 
 
 
-    public function create()
+    public function create() // retorna a la vista con el formulario de contacto
     {
         return view('contactos.create');
         
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request) // registra el mensaje de contacto
     {
         Contacto::create($request->all());
 
-        return redirect()->route('intranet.mensajes');
+        return redirect()->route('contactos.create');
     }
 
 
 
-    public function show($id)
+    public function show($id) //muestra el contenido de un mensaje
     {
     $contactos = Contacto::findOrFail($id);
     

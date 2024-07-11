@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_sociedad');
             $table->string('nombre');
             $table->unsignedInteger('n_miembros')->default(0);
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();;
             $table->unsignedInteger('pastor');
             $table->unsignedInteger('pastora');
             $table->timestamps();
